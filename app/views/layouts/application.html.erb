@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shortr</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class='container main'>
+  <h1 class='main-heading'>Shortr</h1>
+
+  <%= yield %>
+
+  <div class='shortened-url'>
+  </div>
+</div>
+
+</body>
+</html>

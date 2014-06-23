@@ -1,0 +1,24 @@
+<form class='form-inline shortener-form'>
+  <div class='form-group'>
+    <input type='url' name='url' class='form-control'
+    placeholder='Paste a link to shorten it' id='url-input' required>
+  </div>
+
+  <input type='submit' value='Shorten' class='btn btn-primary'>
+</form>
+
+<script>
+  $('form').on('submit', function (event) {
+    event.preventDefault();
+    var link = $(event.currentTarget).serializeJSON().url
+
+    $.ajax({
+      method: 'POST',
+      url: 'api/links',
+      data: { long_url: link },
+      success: function (resp) {
+        $('.shortened-url').html(resp.link);
+      }
+    });
+  });
+</script>
